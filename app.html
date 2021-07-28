@@ -48,49 +48,69 @@
  <!-- ==== Main Section ==== -->
  <main class="flex-shrink-0">
     <div class="container mt-5">
-        <div class="row row-cols-1 row-cols-lg-2">
-            <!--Description and Instructions-->
-            <div class="col-lg-4 border-end border-2">
-                <h1 class="racing">Cien: A Coding Challenge</h1>
-                <h4 class=" lead robot">
-                    A Javascript coding exercise using loops. Takes a starting and ending  value and displays a table of sequential 
-                    numbers inbetween that increment by one. <span class="even">EVEN </span>numbers are displayed as bold. Program checks input to
-                    ensure only integers are used. 
-                </h4>
-                <h2 class="robot mt-5 border-bottom border-2">
-                    Instructions
-                </h2>
-                <p class="robot">Enter a starting value and an ending value. Press the button and the values will appear. </p>
-            </div>
-            <!--Try it out section-->
-            <div class="col-lg-8">
-                <div>
-                    <h5>Enter Values</h5>
-                    <form class="row gy-2 gx-3">
-                        <div class="col">
-                            <input id="start_value" type="number" class="form-control" placeholder="Start Value" value=0 aria-label="Start Value">
-
-                        </div>
-                        <div class="col">
-                            <input id="end_value" type="number" class="form-control" placeholder="End Value" value=100 aria-label="End Value">
-
-                        </div>
-                        <!--Button-->
-                        <div class="col-12 d-flex justify-content-end">
-                            <button id="btn_submit" type="button" class="btn btn-dark btn-lg">Display the Numbers</button>
-                        </div>
-                    </form>
-                    <h2 class="mt-5 border-bottom border-2">Results</h2>
-                    <div class="table-responsive">
-                        <table class="table table-striped table-sm">
-                            <tbody id="results">
-                                <!--Results go here using Js-->
-
-                            </tbody>
-                        </table>
+        <!--First Row to contain Input Col and Results Col-->
+        <div class="row row-cols-sm-1 row-cols-lg-2">
+            <!--Input column-->
+            <div class="col bg-light p-3">
+                <form class="row">
+                    <div class="col-12">
+                        <label for="loanAmount" class="form-label">Loan Amount</label>
+                        <input id="start_value" type="number" class="form-control" placeholder="Start Value" value=0 aria-label="Loan Amount">
                     </div>
-                </div>
+                    <div class="col-12">
+                        <label for="payments" class="form-label">Payments</label>
+                        <input id="start_value" type="number" class="form-control" placeholder="Start Value" value=0 aria-label="Payments">
+                    </div>
+                    <div class="col-12 pb-2">
+                        <label for="rate" class="form-label">Rate</label>
+                        <input id="start_value" type="number" class="form-control" placeholder="Start Value" value=0 aria-label="Rate">
+                    </div>
+                    <!--Button-->
+                    <div class="col-12 d-flex justify-content-end">
+                        <button id="btn_submit" type="button" class="btn btn-outline-info">Calculate</button>
+                    </div>
+                </form>
+
             </div>
+            <!--Results column-->
+            <div class="col">
+                <div class="row">
+                    <h4 class="text-center">Your Monthly Payments</h4>
+                </div>
+                <div class="row">
+                    <!--Small table here-->
+                    <table class="table table-borderless">
+                        <tbody>
+                            <tr>
+                                <td>Total Principal </td>
+                            </tr>
+                            <tr>
+                                <td>Total Interest </td>
+                            </tr>
+                            <tr>
+                                <td>Total Cost </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+        <!--Second Row to hold results table-->
+        <div class="row mt-3">
+            <!--Table needs to go here-->
+            <table class="table">
+                <thead>
+                    <tr class="table-primary">
+                        <th>Month</th>
+                        <th>Payment</th>
+                        <th>Principal</th>
+                        <th>Interest</th>
+                        <th>Total Interest</th>
+                        <th>Balance</th>
+                    </tr>
+                </thead>
+            </table>
         </div>
 
     </div>
@@ -125,5 +145,52 @@
     </script>
     <script src="/js/site.js"></script>
 </body>
+
+<template>
+    <div class="row row-cols-1 row-cols-lg-2">
+        <!--Description and Instructions-->
+        <div class="col-lg-4 border-end border-2">
+            <h1 class="racing">Cien: A Coding Challenge</h1>
+            <h4 class=" lead robot">
+                A Javascript coding exercise using loops. Takes a starting and ending  value and displays a table of sequential 
+                numbers inbetween that increment by one. <span class="even">EVEN </span>numbers are displayed as bold. Program checks input to
+                ensure only integers are used. 
+            </h4>
+            <h2 class="robot mt-5 border-bottom border-2">
+                Instructions
+            </h2>
+            <p class="robot">Enter a starting value and an ending value. Press the button and the values will appear. </p>
+        </div>
+        <!--Try it out section-->
+        <div class="col-lg-8">
+            <div>
+                <h5>Enter Values</h5>
+                <form class="row gy-2 gx-3">
+                    <div class="col">
+                        <input id="start_value" type="number" class="form-control" placeholder="Start Value" value=0 aria-label="Start Value">
+
+                    </div>
+                    <div class="col">
+                        <input id="end_value" type="number" class="form-control" placeholder="End Value" value=100 aria-label="End Value">
+
+                    </div>
+                    <!--Button-->
+                    <div class="col-12 d-flex justify-content-end">
+                        <button id="btn_submit" type="button" class="btn btn-dark btn-lg">Display the Numbers</button>
+                    </div>
+                </form>
+                <h2 class="mt-5 border-bottom border-2">Results</h2>
+                <div class="table-responsive">
+                    <table class="table table-striped table-sm">
+                        <tbody id="results">
+                            <!--Results go here using Js-->
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
 
 </html>
