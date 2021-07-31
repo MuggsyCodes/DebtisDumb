@@ -47,48 +47,53 @@
 </nav>
  <!-- ==== Main Section ==== -->
  <main class="flex-shrink-0">
-    <div class="container mt-5">
+    <div class="container mt-3">
+        <h2 class="h2 mb-3">Loan Calculator</h2>
         <!--First Row to contain Input Col and Results Col-->
-        <div class="row row-cols-sm-1 row-cols-lg-2">
+        <div class="row row-cols-1 row-cols-lg-2">
             <!--Input column-->
             <div class="col bg-light p-3">
                 <form class="row">
                     <div class="col-12">
-                        <label for="loanAmount" class="form-label">Loan Amount</label>
-                        <input id="start_value" type="number" class="form-control" placeholder="Start Value" value=0 aria-label="Loan Amount">
+                        <label for="loanAmount" class="form-label">Loan Amount ($)</label>
+                        <input id="loan_amount" type="number" class="form-control" placeholder="Enter Loan Amount" value=25000 aria-label="Loan Amount">
                     </div>
                     <div class="col-12">
-                        <label for="payments" class="form-label">Payments</label>
-                        <input id="start_value" type="number" class="form-control" placeholder="Start Value" value=0 aria-label="Payments">
+                        <label for="payments" class="form-label">Term (months)</label>
+                        <input id="payments" type="number" class="form-control" placeholder="Months left to payoff loan" value=60 aria-label="Payments">
                     </div>
                     <div class="col-12 pb-2">
-                        <label for="rate" class="form-label">Rate</label>
-                        <input id="start_value" type="number" class="form-control" placeholder="Start Value" value=0 aria-label="Rate">
+                        <label for="rate" class="form-label">Interest Rate (%)</label>
+                        <input id="rate" type="number" class="form-control" placeholder="Interest Rate" value=5 aria-label="Rate">
                     </div>
                     <!--Button-->
                     <div class="col-12 d-flex justify-content-end">
-                        <button id="btn_submit" type="button" class="btn btn-outline-info">Calculate</button>
+                        <button id="calc_btn" type="button" class="btn btn-outline-info">Calculate</button>
                     </div>
                 </form>
 
             </div>
             <!--Results column-->
-            <div class="col">
+            <div class="col gx-5">
                 <div class="row">
-                    <h4 class="text-center">Your Monthly Payments</h4>
+                    <h4 class="text-center">Your Monthly Payment is:</h4>
+                    <h4 class="text-center" id="monthly_payment"></h4>
                 </div>
                 <div class="row">
                     <!--Small table here-->
                     <table class="table table-borderless">
                         <tbody>
                             <tr>
-                                <td>Total Principal </td>
+                                <td>Initial Principal </td>
+                                <td id="total_principal"></td>
                             </tr>
                             <tr>
                                 <td>Total Interest </td>
+                                <td id="total_interest"></td>
                             </tr>
                             <tr>
                                 <td>Total Cost </td>
+                                <td id="total_cost"></td>
                             </tr>
                         </tbody>
                     </table>
@@ -108,6 +113,18 @@
                         <th>Interest</th>
                         <th>Total Interest</th>
                         <th>Balance</th>
+                    </tr>
+                    <!--append the data here-->
+                    <tbody id="table_data">
+
+                    </tbody>
+                    <tr>
+                        <td id="month"></td>
+                        <td id="payment"></td>
+                        <td id="principal"></td>
+                        <td id="interest"></td>
+                        <td id="interest_data"></td>
+                        <td id="balance"></td>
                     </tr>
                 </thead>
             </table>
@@ -144,6 +161,9 @@
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
     </script>
     <script src="/js/site.js"></script>
+    <script>
+        document.getElementById("calc_btn").addEventListener("click", doMyMath);
+    </script>
 </body>
 
 <template>
