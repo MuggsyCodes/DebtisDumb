@@ -52,22 +52,22 @@
         <!--First Row to contain Input Col and Results Col-->
         <div class="row row-cols-1 row-cols-lg-2">
             <!--Input column-->
-            <div class="col bg-light p-3">
+            <div class="col bg-light p-3 mb-2">
                 <form class="row">
-                    <div class="col-12">
+                    <div class="col-10">
                         <label for="loanAmount" class="form-label">Loan Amount ($)</label>
                         <input id="loan_amount" type="number" class="form-control" placeholder="Enter Loan Amount" value=25000 aria-label="Loan Amount">
                     </div>
-                    <div class="col-12">
+                    <div class="col-10">
                         <label for="payments" class="form-label">Term (months)</label>
                         <input id="payments" type="number" class="form-control" placeholder="Months left to payoff loan" value=60 aria-label="Payments">
                     </div>
-                    <div class="col-12 pb-2">
+                    <div class="col-10 pb-2">
                         <label for="rate" class="form-label">Interest Rate (%)</label>
                         <input id="rate" type="number" class="form-control" placeholder="Interest Rate" value=5 aria-label="Rate">
                     </div>
                     <!--Button-->
-                    <div class="col-12 d-flex justify-content-end">
+                    <div class="col-10 d-flex justify-content-end">
                         <button id="calc_btn" type="button" class="btn btn-outline-info">Calculate</button>
                     </div>
                 </form>
@@ -77,7 +77,7 @@
             <div class="col gx-5">
                 <div class="row">
                     <h4 class="text-center">Your Monthly Payment is:</h4>
-                    <h4 class="text-center" id="monthly_payment"></h4>
+                    <h3 class="text-center" id="monthly_payment"></h3>
                 </div>
                 <div class="row">
                     <!--Small table here-->

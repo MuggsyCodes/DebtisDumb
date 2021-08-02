@@ -93,12 +93,21 @@ function displayData(monthly_payment, cost_Obj){
     totalInterest = parseFloat(totalInterest);
     
     let totalCost = (loanAmount + totalInterest);
+
+    //apply the toLocaleString method to STRINGS
+    monthlyPayment = monthly_payment.toLocaleString(undefined, { maximumFractionDigits: 2 });
+    //monthlyPayment = monthlyPayment.toLocaleString();
+    loanAmount = loanAmount.toLocaleString(undefined, { maximumFractionDigits: 2 });
+
+    totalInterest = totalInterest.toLocaleString(undefined, { maximumFractionDigits: 2 });
     
     //have to access the DOM
-    document.getElementById("monthly_payment").innerHTML = `$${monthly_payment.toFixed(2)}`;
+    document.getElementById("monthly_payment").innerHTML = `$${monthlyPayment}`;
+
+    //document.getElementById("monthly_payment").innerHTML = `$${monthly_payment.toFixed(2)}`;
     document.getElementById("total_principal").innerHTML = `$${loanAmount}`; 
-    document.getElementById("total_interest").innerHTML = `$${totalInterest.toFixed(2)}`;
-    document.getElementById("total_cost").innerHTML = `$${totalCost.toFixed(2)}`;
+    document.getElementById("total_interest").innerHTML = `$${totalInterest}`;
+    document.getElementById("total_cost").innerHTML = `$${totalCost.toLocaleString(undefined, { maximumFractionDigits: 2 })}`;
 
 
     //create table data for id = table_data
@@ -111,11 +120,11 @@ function displayData(monthly_payment, cost_Obj){
         
         row = `<tr>
                     <td>${cost_Obj.months[i]}</td>
-                    <td>$${monthly_payment.toFixed(2)}</td>
-                    <td>$${cost_Obj.principal_payment[i].toFixed(2)}</td>
-                    <td>$${cost_Obj.interest_payments[i].toFixed(2)}</td>
-                    <td>$${cost_Obj.total_interest_array[i].toFixed(2)}</td>
-                    <td>$${cost_Obj.remaining_balance[i].toFixed(2)}</td>
+                    <td>$${monthly_payment.toLocaleString(undefined, { maximumFractionDigits: 2 })}</td>
+                    <td>$${cost_Obj.principal_payment[i].toLocaleString(undefined, { maximumFractionDigits: 2 })}</td>
+                    <td>$${cost_Obj.interest_payments[i].toLocaleString(undefined, { maximumFractionDigits: 2 })}</td>
+                    <td>$${cost_Obj.total_interest_array[i].toLocaleString(undefined, { maximumFractionDigits: 2 })}</td>
+                    <td>$${cost_Obj.remaining_balance[i].toLocaleString(undefined, { maximumFractionDigits: 2 })}</td>
                 </tr>`;
         //fill out table using newly created row from template literal
         document.getElementById("table_data").innerHTML += row;
