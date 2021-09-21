@@ -114,6 +114,10 @@ function displayData(monthly_payment, cost_Obj){
     //table columns, td, nested inside table row - 6 total columns
 
     let n = cost_Obj.months.length;
+    
+    //clear any existing table data - this basically is just a dummy row with nothing in it
+    document.getElementById("table_data").innerHTML = '<tr></tr>'    
+
     var row; 
 
     for (let i = 0; i<n; i++){
@@ -126,6 +130,7 @@ function displayData(monthly_payment, cost_Obj){
                     <td>$${cost_Obj.total_interest_array[i].toLocaleString(undefined, { maximumFractionDigits: 2 })}</td>
                     <td>$${cost_Obj.remaining_balance[i].toLocaleString(undefined, { maximumFractionDigits: 2 })}</td>
                 </tr>`;
+
         //fill out table using newly created row from template literal
         document.getElementById("table_data").innerHTML += row;
     }
@@ -141,6 +146,7 @@ function displayData(monthly_payment, cost_Obj){
 
 }    
 
+// this function called first after Calculate button is clicked
 function doMyMath(){
 
     //object from paymentCalculator 
